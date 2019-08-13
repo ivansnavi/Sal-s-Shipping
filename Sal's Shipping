@@ -1,0 +1,45 @@
+
+weight = 11
+
+if 0.01 < weight:
+    def ground_shipping(weight):
+        if (10 < weight):
+            return weight * 4.75
+        elif (6 < weight <= 10):
+            return weight * 4.00
+        elif (2 < weight <= 6):
+            return weight * 3.00
+        elif (0.01 <= weight <= 2):
+            return weight * 1.50
+
+    def drone_shipping(weight):
+        if (10 < weight):
+            return weight * 14.25
+        elif (6 < weight <= 10):
+            return weight * 12.00
+        elif (2 < weight <= 6):
+            return weight * 9.00
+        elif (0.01 <= weight <= 2):
+            return weight * 4.50
+
+    gs = ground_shipping(weight)
+    ds = drone_shipping(weight)
+    ps = 125
+
+    def lowest_price(weight):
+        if (gs < ps) and (gs < ds):
+            print("Ground shipping is the cheapest method!")
+            print("It would cost " + str(gs + 20) + " to ship this package with weight of " + str(
+                weight) + " using this method!")
+        elif (ps < gs) and (ps < ds):
+            print("Premium shipping is the cheapest method!")
+            print("It would cost " + str(ps) + " to ship this package with weight of " + str(
+                weight) + " using this method!")
+        else:
+            print("Drone shipping is the cheapest method!")
+            print("It would cost " + str(ds) + " to ship this package with weight of " + str(
+                weight) + " using this method!")
+
+    lowest_price(weight)
+else:
+    print("The " + str(weight) + " is invalid!")
